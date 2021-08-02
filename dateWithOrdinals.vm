@@ -1,0 +1,27 @@
+#*
+ *  Simple macro to determine the ordianl of a date
+ *
+ *  Line 23 formats the date and can be changed to match
+ *  whatever format is needed.
+ *#
+#macro(dateWithOrdinals $date)
+    #set($formattedDate = "")
+    #set($digits = $_DateTool.format("dd", $date))
+    #set($month = $_DateTool.format("MMMM", $date))
+    #set($year = $_DateTool.format("yyyy", $date))
+    ## #set($dateTest = $_NumberTool.integer($digits) % 10)
+    #set($dateTest = $_MathTool.toNumber($digits) % 10)
+    #set($ordinal = "")
+    #if($dateTest == 1)
+        #set($ordinal = "st")
+    #elseif($dateTest == 2)
+        #set($ordinal = "nd")
+    #elseif($dateTets == 3)
+        #set($ordinal = "rd")
+    #else
+        #set($ordinal = "th")
+    #end
+    #set($index = $format.indexOf("dd"))
+    #set($formattedDate = $month + " " + $digits + $ordinal + ", " + $year)
+    $formattedDate
+#end
