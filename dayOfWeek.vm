@@ -1,0 +1,26 @@
+#*
+ *  Format day of week
+ *  You must pass in the 3 letter abbreviation
+ *  DateTool format "E" or "EEE"
+ *#
+#macro(formatDayOfWeek $day)
+    #set($dow = "")
+    #if($day == "Sun")
+        #set($dow = "Sunday")
+    #elseif($day == "Mon")
+        #set($dow = "Monday")
+    #elseif($day == "Tue")
+        #set($dow = "Tuesday")
+    #elseif($day == "Wed")
+        #set($dow = "Wednesday")
+    #elseif($day == "Thu")
+        #set($dow = "Thursday")
+    #elseif($day == "Fri")
+        #set($dow = "Friday")
+    #elseif($day == "Sat")
+        #set($dow = "Saturday")
+    #else
+        ##
+    #end
+    $dow
+#end
