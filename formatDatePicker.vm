@@ -1,0 +1,6 @@
+## Get Date
+#set($slideDate = $slide.getChild("date").textValue)
+## Set format for date
+#set($dateFormat = $_DateTool.getDateFormat("MM-dd-yyyy", $_DateTool.getLocale(), $_DateTool.getTimeZone()))
+## Parse date
+#set($date = $dateFormat.parse($slideDate))
