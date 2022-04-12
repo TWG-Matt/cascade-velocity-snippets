@@ -1,0 +1,10 @@
+## Format a standard Date/Time Picker
+#set($dateTime = $_DateTool.getDate($mainSectionNode.getChild("dateTime").textValue))
+#set($time     = $_DateTool.format("h:mm a", $_DateTool.getDate($mainSectionNode.getChild("dateTime").textValue)))
+#set($date     = $_DateTool.format("full_date",$dateTime))
+
+## Format a Calendar Picker
+## Calendar - outputs data type string (10-12-2019)
+#set($calendar  = $mainSectionNode.getChild("calendar").textValue)
+## convert to date data type and format
+#set ($date = $_DateTool.toDate("MM-dd-yyyy", $calendar))
